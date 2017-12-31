@@ -1,5 +1,16 @@
+/*#546e7a blue-grey darken-1*/
 
+/*#f57c00 orange darken-2*/
 
-#546e7a blue-grey darken-1
+#header {
+  /*background-color: #f57c00;*/
+}
 
-#f57c00 orange darken-2
+#header h2 {
+  font-weight: 500;
+}
+
+#header small {
+  font-weight: 300;
+  font-size: 24px;
+}

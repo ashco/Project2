@@ -17,7 +17,10 @@ app.get('/', function(req, res){
 
 
 //Declaring Routes
-// app.use('/something', require('.routes/something.js'));
+app.use('/watchlist', require('./routes/watchlist.js'));
+app.use('/portfolio', require('./routes/portfolio.js'));
+
+
 
 var server = app.listen(5000);
 

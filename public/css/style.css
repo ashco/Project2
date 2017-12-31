@@ -6,11 +6,11 @@
   /*background-color: #f57c00;*/
 }
 
-#header h2 {
+#market-cap-div h2 {
   font-weight: 500;
 }
 
-#header small {
+#market-cap-div small {
   font-weight: 300;
   font-size: 24px;
 }

@@ -13,26 +13,24 @@
 
     <!-- Navbar -->
     <nav>
-      <div class="nav-wrapper #546e7a blue-grey darken-1">
-        <a href="#!" class="brand-logo">Crypto Tracker</a>
+      <div class="nav-wrapper #546e7a blue-grey darken-2">
+        <a href="/" class="brand-logo">Crypto Tracker</a>
         <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Market Cap</a></li>
-          <li><a href="#">Watchlist</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a class="waves-effect waves-light btn #f57c00 orange darken-2">Login</a></li>
+          <li><a href="/">Market Cap</a></li>
+          <li><a href="/watchlist">Watchlist</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="#" class="waves-effect waves-light btn #f57c00 orange darken-2">Login</a></li>
         </ul>
         <ul class="side-nav" id="mobile-menu">
-          <li><a href="#">Market Cap</a></li>
-          <li><a href="#">Watchlist</a></li>
-          <li><a href="#">Portfolio</a></li>
+          <li><a href="/">Market Cap</a></li>
+          <li><a href="/watchlist">Watchlist</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
           <li><a href="#">Wallets</a></li>
           <li><a class="waves-effect waves-light btn #f57c00 orange darken-2">Login</a></li>
         </ul>
       </div>
     </nav>
-
-    <!-- Header -->
 
     <!-- Main Section -->
     <section id="main">
@@ -40,21 +38,21 @@
         <div class="row">
 
           <!-- Side Nav -->
-          <div id="side-nav" class="col hide-on-small-only m3 l2">
-            <h4>Title small</h4>
+          <div id="side-nav" class="col hide-on-small-only m3 #90a4ae blue-grey lighten-4">
+            <h4>Side Nav</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At veritatis saepe harum voluptates placeat possimus sapiente, beatae animi aspernatur iste voluptatibus numquam. Tenetur nemo dicta veniam tempore, doloremque beatae in.</p>
           </div>
           
           <!-- Main Nav -->
-          <div id="main-nav" class="col s12 m9 l10">
-            <h2>Title</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
-          </div>
+
+          <%- body %>
+
         </div>
       </div>
     </section>
 
-    <footer id="footer" class="page-footer #546e7a blue-grey darken-1">
+    <!-- Footer  -->
+    <footer id="footer" class="page-footer #546e7a blue-grey darken-2">
       <div class="footer-copyright">
         <div class="container">
         © 2018 Copyright Stuff

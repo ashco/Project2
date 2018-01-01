@@ -19,6 +19,7 @@ app.get('/', function(req, res){
 //Declaring Routes
 app.use('/watchlist', require('./routes/watchlist.js'));
 app.use('/portfolio', require('./routes/portfolio.js'));
+app.use('/wallets', require('./routes/wallets.js'));
 
 
 

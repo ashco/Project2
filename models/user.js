@@ -1,5 +1,4 @@
 'use strict';
-
 var bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
@@ -38,17 +37,13 @@ module.exports = (sequelize, DataTypes) => {
       associate: function(models) {
         // associations can be defined here
       }
+    },
+    instanceMethods: {
+      isValidPassword: function(passwordTyped){
+        return bcrypt.compareSync(passwordTyped, this.password);
+      }
     }
   });
 
-  user.prototype.isValidPassword = function(passwordTyped){
-    return bcrypt.compareSync(passwordTyped, this.password);
-  }
-
-  user.prototype.toJSON = function(){
-    var user = this.get();
-    delete user.password;
-    return user;
-  }
   return user;
 };

@@ -1,0 +1,50 @@
+<nav>
+  <div class="nav-wrapper #546e7a blue-grey darken-2">
+    <a href="/" class="brand-logo">re:Crypt</a>
+    <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a href="/">Market Cap</a>
+      </li>
+      <li>
+        <a href="/watchlist">Watchlist</a>
+      </li>
+      <li>
+        <a href="/portfolio">Portfolio</a>
+      </li>
+      <% if(!currentUser){ %>
+      <li>
+        <a href="/auth/login" class="waves-effect waves-light btn #f57c00 orange darken-2">Login</a>
+      </li>
+      <% } else { %>
+      <li>
+        <a href="/auth/logout" class="waves-effect waves-light btn #f57c00 orange darken-2">Logout</a>
+      </li>
+      <% } %>
+    </ul>
+    <ul class="side-nav" id="mobile-menu">
+      <li>
+        <a href="/">Market Cap</a>
+      </li>
+      <li>
+        <a href="/watchlist">Watchlist</a>
+      </li>
+      <li>
+        <a href="/portfolio">Portfolio</a>
+      </li>
+      <li>
+        <a href="/wallets">Wallets</a>
+      </li>
+      <% if(!currentUser){ %>
+      <li>
+        <a href="/auth/login" class="waves-effect waves-light btn #f57c00 orange darken-2">Login</a>
+      </li>
+      <% } else { %>
+      <li>
+        <a href="/auth/logout" class="waves-effect waves-light btn #f57c00 orange darken-2">Logout</a>
+      </li>
+      <% } %>
+    </ul>
+    </ul>
+  </div>
+</nav>

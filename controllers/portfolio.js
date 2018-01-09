@@ -1,4 +1,5 @@
 var express = require('express');
+var isLoggedIn = require('../middleware/isLoggedIn.js');
 var router = express.Router();
 
 router.get('/', isLoggedIn, function(req, res){

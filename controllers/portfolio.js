@@ -12,7 +12,7 @@ router.post('/', function(req, res){
 });
 
 //Deletes selected id from database
-router.delete('/:id', function(req, res){
+router.delete('/:coin', function(req, res){
   console.log('/portfolio DELETE working');
 });
 

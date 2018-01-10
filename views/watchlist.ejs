@@ -2,6 +2,13 @@
 
 <div id="watchlist-div" class="col s12">
   <h2>Watchlist</h2>
+
+  <% watchlistData.forEach(function(wl){ %>
+    <% if(wl.watchlist > 0){ %>
+      <p><%= wl.coin.name %></p>
+    <% } %>
+  <% }); %>
+
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
 
   <table id="main-table" class="mdl-data-table bordered highlight" cellspacing="0" width="100%">

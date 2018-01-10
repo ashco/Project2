@@ -3,7 +3,6 @@ var passport = require('../config/ppConfig.js')
 var db = require('../models')
 var router = express.Router();
 
-
 router.get('/login', function(req, res){
   res.render('auth/login.ejs');
 });
@@ -39,11 +38,11 @@ router.post('/signup', function(req, res, next){
     else {
       //bad job, you tried to make a duplicate
       req.flash('error', 'Email already exists');
-      res.redirect('/auth/login');
+      res.redirect('auth/login.ejs');
     }
   }).catch(function(err){
     req.flash('error', err.message);
-    res.redirect('/auth/signup');
+    res.redirect('auth/signup.ejs');
   });
 });
 

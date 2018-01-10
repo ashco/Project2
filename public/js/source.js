@@ -49,7 +49,7 @@ function tickerText(){
 
 
 //add to watchlist click listener 
-$('.watch-coin').click(function(wc){
+$('.watchlist-link').click(function(wc){
   wc.preventDefault()
   $.post($(this).attr('href'))
   // console.log($(this).attr('href'));

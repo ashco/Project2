@@ -3,11 +3,12 @@ var db = require('../models');
 var router = express.Router();
 
 router.get('/', function(req, res){
-  db.preference.find({
+  db.preference.findAll({
     //change to make match for when user id is for current user, not just user 1
     where: { userId: 1 },
     include: [db.coin]
   }).then(function(watchlistData){
+    // console.log('data is', watchlistData)
     res.render('watchlist.ejs', {watchlistData: watchlistData});
   });
 });
@@ -22,9 +23,6 @@ router.post('/:coin', function(req, res){
     db.preference.findOrCreate({
       where: { 
         //Need to add in more params to make it only skip duplicates, not just when there is 1 entry
-
-
-
         watchlist: '1',
       }
     //if new entry is needed, add it to Preferences table

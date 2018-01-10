@@ -30,8 +30,6 @@ app.use(function(req, res, next){
   next();
 });
 
-
-
 //Root directory
 app.get('/', function(req, res){
   // console.log('hello');

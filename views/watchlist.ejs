@@ -3,6 +3,8 @@
 <div id="watchlist-div" class="col s12">
   <h2>Watchlist</h2>
 
+  <p class="tester"></p>
+
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
 
   <table id="main-table" class="mdl-data-table bordered highlight" cellspacing="0" width="100%">
@@ -20,7 +22,7 @@
         <td><%= wl.coin.name %></td>
         <td>$$$</td>
         <td>%%%</td>
-        <td><button href="/watchlist/<%= wl.coin.name %>" class="watchlist-remove">Remove</button></td>
+        <td><button href="/watchlist/<%= wl.coin.ticker %>" class="watchlist-remove">Remove</button></td>
       </tr>
       <% }); %>
     </tbody>

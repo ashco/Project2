@@ -1,10 +1,16 @@
-// Variables
+
+
+// AJAX VARIABLES
 var tmcNum;
-
-//Coin data source object
 var tickerData;
+var tickerData_Price;
+var tickerData_Change24h;
 
 
+
+
+
+// MATERIALIZE STUFF
 // Mobile hamburger menu
 $('.button-collapse').sideNav();
 
@@ -23,25 +29,36 @@ $('#main-table').DataTable( {
 
 
 
-// // AJAX total marketcap request
-// $.get('https://api.coinmarketcap.com/v1/global/')
-// .done(function(global) {
-//   tmcNum = global.total_market_cap_usd.toString();
-// });
+// AJAX STUFF
+// AJAX Total Market Cap
+$.get('https://api.coinmarketcap.com/v1/global/')
+.done(function(global){
+  tmcNum = global.total_market_cap_usd.toString();
+});
 
-// // AJAX coin stats request
-// $.get('https://api.coinmarketcap.com/v1/ticker/?limit=10')
-// .done(function(ticker) {
-//   tickerData = ticker;
-// });
-
-// Inserts AJAX gathered data into page
+// Inserts total market cap gathered data into page
 function tmcText(){
   $('#tmc-num').text(tmcNum);
 }
 
+
+// AJAX Coin List
+$.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
+.done(function(ticker) {
+  tickerData = ticker;
+});
+
+function sortTicker(coin){
+  return coin.name === "NEO"
+}
+
+// tickerData.find(sortTicker).price_usd;
+
+
+
+// //function to add into to page
 function tickerText(){
-  $('#pos-4').html('<td>Bitcoin Cash</td><td>$41,500,019,205</td><td>$2,457.24</td><td>$1,078,290,000</td><td>-2.08%</td>')
+  $('.tester').html(tickerData.find(sortTicker).price_usd)
 }
 
 
@@ -73,4 +90,4 @@ function init(){
   tmcText();
 } 
 
-// init();
+init();

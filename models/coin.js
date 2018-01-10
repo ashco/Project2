@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var coin = sequelize.define('coin', {
+    ticker: DataTypes.STRING,
     name: DataTypes.STRING
   }, {
     classMethods: {

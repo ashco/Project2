@@ -15,19 +15,6 @@ var watchlistArray;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // MATERIALIZE STUFF
 // Mobile hamburger menu
 $('.button-collapse').sideNav();
@@ -44,17 +31,18 @@ $('.button-collapse').sideNav();
 // });
 
 
+//not needed now, using ejs
 // AJAX STUFF
 // AJAX Total Market Cap
-$.get('https://api.coinmarketcap.com/v1/global/')
-.done(function(global){
-  tmcNum = global.total_market_cap_usd.toString();
-});
+// $.get('https://api.coinmarketcap.com/v1/global/')
+// .done(function(global){
+//   tmcNum = global.total_market_cap_usd.toString();
+// });
 
 // Inserts total market cap gathered data into page
-function tmcText(){
-  $('#tmc-num').text(tmcNum);
-}
+// function tmcText(){
+//   $('#tmc-num').text(tmcNum);
+// }
 
 
 // // AJAX Coin List
@@ -100,12 +88,6 @@ function watchlistText(){
     }).percent_change_24h + '%');
   }
 }
-
-
-
-
-
-
 
 
 //add to watchlist click listener 

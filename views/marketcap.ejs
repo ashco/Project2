@@ -2,7 +2,7 @@
 
 <div id="market-cap-div" class="col s12">
   <section>
-    <h2>Market Cap<small> Total: $<span id="tmc-num"><%= tmc.total_market_cap_usd %></span></small></h2>
+    <h2>Market Cap<small> Total: $<span id="tmc-num"><%= tmcData.total_market_cap_usd %></span></small></h2>
   </section>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
 
@@ -24,19 +24,19 @@
       <% for(var i = 0; i < 25; i++){ %>
       <tr id="mc-tr-<%= i+1 %>">
         <td id="mc-name-<%= i+1 %>">
-          <%= coins[i].name %>
+          <%= tickerData[i].name %>
         </td>
         <td id="mc-marketcap-<%= i+1 %>">
-          <%= coins[i].market_cap_usd %>
+          <%= tickerData[i].market_cap_usd %>
         </td>
         <td id="mc-price-<%= i+1 %>">
-          <%= coins[i].price_usd %>
+          <%= tickerData[i].price_usd %>
         </td>
         <td id="mc-vol-<%= i+1 %>">
-          <%= coins[i]['24h_volume_usd'] %>
+          <%= tickerData[i]['24h_volume_usd'] %>
         </td>
         <td id="mc-change-<%= i+1 %>">
-          <%= coins[i].percent_change_24h %>
+          <%= tickerData[i].percent_change_24h %>
         </td>
         <td>
           <button href="/watchlist" class="watchlist-add">+ Watchlist</button>

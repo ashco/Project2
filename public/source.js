@@ -46,10 +46,10 @@ $('.button-collapse').sideNav();
 
 
 // // AJAX Coin List
-// $.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
-// .done(function(ticker) {
-//   tickerData = ticker;
-// });
+$.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
+.done(function(ticker) {
+  tickerData = ticker;
+});
 
 
 function watchlistText(){

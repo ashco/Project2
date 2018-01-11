@@ -3,9 +3,7 @@
 <div id="watchlist-div" class="col s12">
   <h2>Watchlist</h2>
 
-  <p class="tester"></p>
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
+  <p>Watch your favorite projects here!</p>
 
   <table id="main-table" class="mdl-data-table bordered highlight" cellspacing="0" width="100%">
     <thead>
@@ -20,9 +18,22 @@
     <tbody>
       <% watchlistData.forEach(function(wl){ %>
       <tr id="<%= wl.coin.ticker %>-wl-row">
-        <td id="<%= wl.coin.ticker %>-wl-name"><%= wl.coin.name %></td>
-        <td id="<%= wl.coin.ticker %>-wl-price">$</td>
-        <td id="<%= wl.coin.ticker %>-wl-24h-change">%</td>
+        <td id="<%= wl.coin.ticker %>-wl-name">
+          <%= wl.coin.name %></td>
+        <td id="<%= wl.coin.ticker %>-wl-price">
+          <% tickerData.forEach(function(coin){ %>
+            <% if(coin.symbol === wl.coin.ticker){ %>
+              $<%= coin.price_usd %>
+            <% } %>
+          <% }); %>
+        </td>
+        <td id="<%= wl.coin.ticker %>-wl-24h-change">
+          <% tickerData.forEach(function(coin){ %>
+            <% if(coin.symbol === wl.coin.ticker){ %>
+              <%= coin.percent_change_24h %>%
+            <% } %>
+          <% }); %>
+        </td>
         <td><button href="/watchlist/<%= wl.coin.ticker %>" class="watchlist-remove">Remove</button></td>
       </tr>
       <% }); %>

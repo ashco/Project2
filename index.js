@@ -54,8 +54,8 @@ app.use(function(req, res, next){
 //Root directory
 app.get('/', function(req, res){
   res.render('marketcap.ejs', {
-    coins : tickerData,
-    tmc: tmcData
+    tickerData : tickerData,
+    tmcData: tmcData
   });
 });
 

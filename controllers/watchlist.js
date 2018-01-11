@@ -3,17 +3,36 @@ var isLoggedIn = require('../middleware/isLoggedIn.js');
 var db = require('../models');
 var router = express.Router();
 
-// router.get('/test', function(req, res){
-//   console.log('ID is', req.user.id);
-// })
+///////
+//Duplicate for now, will try to DRY up later..
+var request = require('request');
+var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
+var tickerData;
 
-router.get('/', isLoggedIn, function(req, res){
+function getData(){
+  request(tickerURL, function(error, response, body){
+    tickerData = JSON.parse(body);
+  });
+}; 
+
+getData()
+
+///////
+
+
+router.get('/', function(req, res){
+// router.get('/', isLoggedIn, function(req, res){
   db.preference.findAll({
     //change to make match for when user id is for current user, not just user 1
-    where: { userId: req.user.id },
+    where: { userId: 1 },
+    // where: { userId: req.user.id },
     include: [db.coin]
   }).then(function(watchlistData){
-    res.render('watchlist.ejs', {watchlistData: watchlistData});
+    // console.log(tickerData);
+    res.render('watchlist.ejs', {
+      watchlistData: watchlistData,
+      tickerData: tickerData
+    });
   });
 });
 

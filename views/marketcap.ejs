@@ -5,10 +5,6 @@
     <h2>Market Cap<small> Total: $<span id="tmc-num"></span></small></h2>
   </section>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
-  
-  <p><%= coins[4].name %></p>
-  <!-- WIP -->
-
 
 
   <table id="main-table" class="bordered highlight responsive-table" cellspacing="0" width="100%">
@@ -25,13 +21,23 @@
 
     <tbody>
 
-      <% for(var i = 1; i <= 25; i++){ %>
-      <tr id="mc-tr-<%= i %>">
-        <td id="mc-name-<%= i %>"></td>
-        <td id="mc-marketcap-<%= i %>">$</td>
-        <td id="mc-price-<%= i %>">$</td>
-        <td id="mc-vol-<%= i %>">$</td>
-        <td id="mc-change-<%= i %>">%</td>
+      <% for(var i = 0; i < 25; i++){ %>
+      <tr id="mc-tr-<%= i+1 %>">
+        <td id="mc-name-<%= i+1 %>">
+          <%= coins[i].name %>
+        </td>
+        <td id="mc-marketcap-<%= i+1 %>">
+          <%= coins[i].market_cap_usd %>
+        </td>
+        <td id="mc-price-<%= i+1 %>">
+          <%= coins[i].price_usd %>
+        </td>
+        <td id="mc-vol-<%= i+1 %>">
+
+        </td>
+        <td id="mc-change-<%= i+1 %>">
+          <%= coins[i].percent_change_24h %>
+        </td>
         <td>
           <button href="/watchlist" class="watchlist-add">+ Watchlist</button>
           <button href="/portfolio" class="portfolio-add">+ Portfolio</button>

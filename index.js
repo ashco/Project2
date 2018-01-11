@@ -42,9 +42,7 @@ app.get('/', function(req, res){
   var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
   request(tickerURL, function(error, response, body){
     var tickerInfo = JSON.parse(body);
-    // console.log('ticker checks', tickerInfo[4].name);
     res.render('marketcap.ejs', {coins : tickerInfo});
-
   });
 });
 

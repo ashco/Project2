@@ -14,6 +14,7 @@ router.get('/', function(req, res){
   });
 });
 
+
 router.post('/:coin', function(req, res){
   //finds selected :coin from coin table and links all preferences with it
   db.coin.find({

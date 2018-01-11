@@ -81,29 +81,6 @@ function tmcText(){
 
 
 
-// VANILLA JS
-// AJAX Coin List
-$.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
-.done(function(ticker) {
-  tickerData = ticker;
-});
-
-
-function marketCapText(){
-  for(var i = 0; i < mcListLength; i++){
-    //Name input
-    $('#mc-name-' + (i + 1)).html(tickerData[i].name);
-    //Market Cap
-    $('#mc-marketcap-' + (i + 1)).html(tickerData[i].market_cap_usd);
-    //Price
-    $('#mc-price-' + (i + 1)).html(tickerData[i].price_usd);
-    //Volume
-    // $('#mc-vol-' + (i + 1)).html(tickerData[i].24h_volume_usd);
-    //% Change
-    $('#mc-change-' + (i + 1)).html(tickerData[i].percent_change_24h);
-  }
-};
-
 
 
 

@@ -106,7 +106,7 @@ $('.watchlist-link').click(function(wc){
 
 //Runs on initialization
 function init(){
-  tmcText();
+  // tmcText();
 } 
 
-init();
+// init();

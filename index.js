@@ -11,7 +11,13 @@ var passport = require('./config/ppConfig.js');
 var session = require('express-session');
 var app = express();
 
-var tickerData;
+//API URLs
+// var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
+// var tmcURL = 'https://api.coinmarketcap.com/v1/global/'
+
+// //API data
+// var tickerData;
+// var tmcData;
 
 
 //MIDDLEWARE
@@ -32,14 +38,6 @@ app.use(function(req, res, next){
   res.locals.alerts = req.flash();
   next();
 });
-
-
-// //Root directory
-// app.get('/', function(req, res){
-//   var tickerInfo = req.ticketData;
-//   console.log(tickerInfo);
-//   // res.render('marketcap.ejs', {coins : tickerInfo});
-// });
 
 
 //Root directory

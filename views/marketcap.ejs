@@ -1,0 +1,47 @@
+<!-- Market Cap -->
+
+<div id="market-cap-div" class="col s12">
+  <section>
+    <h2>Market Cap<small> Total: $<span id="tmc-num"></span></small></h2>
+  </section>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
+  
+  <p><%= coins[4].name %></p>
+  <!-- WIP -->
+
+
+
+  <table id="main-table" class="bordered highlight responsive-table" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Market Cap</th>
+        <th>Price</th>
+        <th>Volume (24h)</th>
+        <th>Change (24h)</th>
+        <th>+</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <% for(var i = 1; i <= 25; i++){ %>
+      <tr id="mc-tr-<%= i %>">
+        <td id="mc-name-<%= i %>"></td>
+        <td id="mc-marketcap-<%= i %>">$</td>
+        <td id="mc-price-<%= i %>">$</td>
+        <td id="mc-vol-<%= i %>">$</td>
+        <td id="mc-change-<%= i %>">%</td>
+        <td>
+          <button href="/watchlist" class="watchlist-add">+ Watchlist</button>
+          <button href="/portfolio" class="portfolio-add">+ Portfolio</button>
+        </td>
+      </tr>
+      <% }; %>
+
+    </tbody>
+  </table>
+</div>
+
+
+

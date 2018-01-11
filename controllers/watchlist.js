@@ -2,13 +2,14 @@ var express = require('express');
 var db = require('../models');
 var router = express.Router();
 
+
 router.get('/', function(req, res){
   db.preference.findAll({
     //change to make match for when user id is for current user, not just user 1
     where: { userId: 1 },
     include: [db.coin]
   }).then(function(watchlistData){
-    // console.log('data is', watchlistData)
+    console.log('data is', watchlistData)
     res.render('watchlist.ejs', {watchlistData: watchlistData});
   });
 });

@@ -3,6 +3,11 @@ var passport = require('../config/ppConfig.js')
 var db = require('../models')
 var router = express.Router();
 
+//MIDDLEWARE
+router.use(express.static(__dirname + '/../public'));
+
+
+//LOGIN
 router.get('/login', function(req, res){
   res.render('auth/login.ejs');
 });
@@ -14,6 +19,8 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: 'Invalid Credentials'
 }));
 
+
+//SIGNUP
 router.get('/signup', function(req, res){
   res.render('auth/signup.ejs');
 });
@@ -46,6 +53,8 @@ router.post('/signup', function(req, res, next){
   });
 });
 
+
+//LOGOUT
 router.get('/logout', function(req, res){
   req.logout();
   req.flash('success', 'Successfully logged out');

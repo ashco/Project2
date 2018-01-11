@@ -6,12 +6,16 @@ var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn.js');
+var pagePop = require('./middleware/pagePopulator.js');
 var passport = require('./config/ppConfig.js');
 var session = require('express-session');
 var app = express();
 
+var tickerData;
 
-//Middleware setup
+
+
+//MIDDLEWARE
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
@@ -30,16 +34,17 @@ app.use(function(req, res, next){
   next();
 });
 
+
+
+
 //Root directory
 app.get('/', function(req, res){
-  // console.log('hello');
-  // res.render('index.ejs');
-  var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=10';
+  var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
   request(tickerURL, function(error, response, body){
-    // res.send(body);
-    var tickerInfo = JSON.parse(body).results;
-    res.render('index.ejs', {coins : tickerInfo});
-    console.log(tickerInfo);
+    var tickerInfo = JSON.parse(body);
+    // console.log('ticker checks', tickerInfo[4].name);
+    res.render('marketcap.ejs', {coins : tickerInfo});
+
   });
 });
 

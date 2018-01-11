@@ -1,10 +1,28 @@
-
+//length of MarketCap list
+var mcListLength = 25;
 
 // AJAX VARIABLES
 var tmcNum;
+
+//raw data from API request
 var tickerData;
-var tickerData_Price;
-var tickerData_Change24h;
+var watchlistArray;
+//function converts ticker data into relevant data for site
+// var marketCapData = [
+//   { name: 'Bitcoin', marketCap: '251386982363', price: '14968.2', volume: '18504700000.0', percent_change_24h: '3.35'},
+//   { name: 'Ethereum', marketCap: '1000000000', price: '1300.2', volume: '185047000.0', percent_change_24h: '13.35'}
+// ]
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -16,17 +34,14 @@ $('.button-collapse').sideNav();
 
 // Datatable functionality via..
 // https://datatables.net/examples/styling/material.html
-$('#main-table').DataTable( {
-  columnDefs: [
-    {
-      targets: [ 0, 1, 2 ],
-      className: 'mdl-data-table__cell--non-numeric'
-    }
-  ]
-});
-
-
-
+// $('#main-table').DataTable( {
+//   columnDefs: [
+//     {
+//       targets: [ 0, 1, 2 ],
+//       className: 'mdl-data-table__cell--non-numeric'
+//     }
+//   ]
+// });
 
 
 // AJAX STUFF
@@ -42,24 +57,75 @@ function tmcText(){
 }
 
 
+// // AJAX Coin List
+// $.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
+// .done(function(ticker) {
+//   tickerData = ticker;
+// });
+
+
+// function marketCapText(){
+//   for(var i = 0; i < mcListLength; i++){
+//     //Name input
+//     $('#mc-name-' + (i + 1)).html(tickerData[i].name);
+//     //Market Cap
+//     $('#mc-marketcap-' + (i + 1)).html(tickerData[i].market_cap_usd);
+//     //Price
+//     $('#mc-price-' + (i + 1)).html(tickerData[i].price_usd);
+//     //Volume
+//     // $('#mc-vol-' + (i + 1)).html(tickerData[i].24h_volume_usd);
+//     //% Change
+//     $('#mc-change-' + (i + 1)).html(tickerData[i].percent_change_24h);
+//   }
+// };
+
+
+
+// VANILLA JS
 // AJAX Coin List
 $.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
 .done(function(ticker) {
   tickerData = ticker;
 });
 
-function sortTicker(coin){
-  return coin.name === "NEO"
+
+function marketCapText(){
+  for(var i = 0; i < mcListLength; i++){
+    //Name input
+    $('#mc-name-' + (i + 1)).html(tickerData[i].name);
+    //Market Cap
+    $('#mc-marketcap-' + (i + 1)).html(tickerData[i].market_cap_usd);
+    //Price
+    $('#mc-price-' + (i + 1)).html(tickerData[i].price_usd);
+    //Volume
+    // $('#mc-vol-' + (i + 1)).html(tickerData[i].24h_volume_usd);
+    //% Change
+    $('#mc-change-' + (i + 1)).html(tickerData[i].percent_change_24h);
+  }
+};
+
+
+
+
+
+
+// function sortTicker(coin){
+//   return coin.symbol === 'BTC';
+// }
+
+function watchlistText(){
+  for(var i = 0; i < watchlistTickers.length; i++){
+    $('#' + watchlistTickers[i] + '-price').html('$' + tickerData.find(function(coin){
+      return coin.symbol === watchlistTickers[i];
+    }).price_usd);
+    $('#' + watchlistTickers[i] + '-24h-change').html(tickerData.find(function(coin){
+      return coin.symbol === watchlistTickers[i];
+    }).percent_change_24h + '%');
+  }
 }
 
-// tickerData.find(sortTicker).price_usd;
 
 
-
-// //function to add into to page
-function tickerText(){
-  $('.tester').html(tickerData.find(sortTicker).price_usd)
-}
 
 
 
@@ -77,12 +143,6 @@ $('.watchlist-link').click(function(wc){
 
   // });
 });
-
-
-
-
-
-
 
 
 //Runs on initialization

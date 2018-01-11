@@ -17,11 +17,12 @@
       </tr>
     </thead>
 
+    <tbody>
       <% watchlistData.forEach(function(wl){ %>
-      <tr>
-        <td><%= wl.coin.name %></td>
-        <td>$$$</td>
-        <td>%%%</td>
+      <tr id="<%= wl.coin.ticker %>-wl-row">
+        <td id="<%= wl.coin.ticker %>-wl-name"><%= wl.coin.name %></td>
+        <td id="<%= wl.coin.ticker %>-wl-price">$</td>
+        <td id="<%= wl.coin.ticker %>-wl-24h-change">%</td>
         <td><button href="/watchlist/<%= wl.coin.ticker %>" class="watchlist-remove">Remove</button></td>
       </tr>
       <% }); %>

@@ -52,32 +52,6 @@ $('.button-collapse').sideNav();
 // });
 
 
-// function marketCapText(){
-//   for(var i = 0; i < mcListLength; i++){
-//     //Name input
-//     $('#mc-name-' + (i + 1)).html(tickerData[i].name);
-//     //Market Cap
-//     $('#mc-marketcap-' + (i + 1)).html(tickerData[i].market_cap_usd);
-//     //Price
-//     $('#mc-price-' + (i + 1)).html(tickerData[i].price_usd);
-//     //Volume
-//     // $('#mc-vol-' + (i + 1)).html(tickerData[i].24h_volume_usd);
-//     //% Change
-//     $('#mc-change-' + (i + 1)).html(tickerData[i].percent_change_24h);
-//   }
-// };
-
-
-
-
-
-
-
-
-// function sortTicker(coin){
-//   return coin.symbol === 'BTC';
-// }
-
 function watchlistText(){
   for(var i = 0; i < watchlistTickers.length; i++){
     $('#' + watchlistTickers[i] + '-price').html('$' + tickerData.find(function(coin){

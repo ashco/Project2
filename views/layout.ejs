@@ -14,16 +14,16 @@
   <body>
 
     <!-- Navbar -->
-    
+
     <% include partials/navbar.ejs %>
 
     <!-- Main Section -->
     <section id="main">
       <div class="container">
         <div class="row">
-        
-          <!-- Main Nav -->
 
+          <!-- Main Nav -->
+          <% include partials/alerts.ejs %>
 
           <%- body %>
 
@@ -32,14 +32,7 @@
     </section>
 
     <!-- Footer  -->
-    <footer id="footer" class="page-footer #546e7a blue-grey darken-2">
-      <div class="footer-copyright">
-        <div class="container">
-        © 2018 Copyright Stuff
-        <a class="grey-text text-lighten-4 right" href="https://github.com/ashco">Created by Ashco</a>
-        </div>
-      </div>
-    </footer>
+    <% include partials/footer.ejs %>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

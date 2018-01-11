@@ -1,15 +1,18 @@
 var express = require('express');
+var isLoggedIn = require('../middleware/isLoggedIn.js');
 var db = require('../models');
 var router = express.Router();
 
+// router.get('/test', function(req, res){
+//   console.log('ID is', req.user.id);
+// })
 
-router.get('/', function(req, res){
+router.get('/', isLoggedIn, function(req, res){
   db.preference.findAll({
     //change to make match for when user id is for current user, not just user 1
-    where: { userId: 1 },
+    where: { userId: req.user.id },
     include: [db.coin]
   }).then(function(watchlistData){
-    console.log('data is', watchlistData)
     res.render('watchlist.ejs', {watchlistData: watchlistData});
   });
 });

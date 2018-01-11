@@ -12,13 +12,24 @@ var session = require('express-session');
 var app = express();
 
 //API URLs
-// var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
-// var tmcURL = 'https://api.coinmarketcap.com/v1/global/'
+var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
+var tmcURL = 'https://api.coinmarketcap.com/v1/global/'
 
-// //API data
-// var tickerData;
-// var tmcData;
+//API data
+var tickerData;
+var tmcData;
 
+
+function getData(){
+  request(tickerURL, function(error, response, body){
+    tickerData = JSON.parse(body);
+    request(tmcURL, function(error, response, body){
+      tmcData = JSON.parse(body);
+    });
+  });
+};  
+
+getData()
 
 //MIDDLEWARE
 app.set('view engine', 'ejs');
@@ -42,20 +53,11 @@ app.use(function(req, res, next){
 
 //Root directory
 app.get('/', function(req, res){
-  var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
-  var tmcURL = 'https://api.coinmarketcap.com/v1/global/';
-  request(tickerURL, function(error, response, body){
-    var tickerInfo = JSON.parse(body);
-    request(tmcURL, function(error, response, body){
-      var tmcInfo = JSON.parse(body);
-      res.render('marketcap.ejs', {
-        coins : tickerInfo,
-        tmc: tmcInfo
-      });
-    });
+  res.render('marketcap.ejs', {
+    coins : tickerData,
+    tmc: tmcData
   });
 });
-
 
 app.get('/marketcap', function(req, res){
   res.redirect('/');

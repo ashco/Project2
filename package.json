@@ -34,6 +34,7 @@
     "request": "^2.83.0",
     "require": "^2.4.20",
     "sequelize": "^3.30.4",
+    "sequelize-cli": "^3.2.0",
     "sessions": "0.0.2-7"
   }
 }

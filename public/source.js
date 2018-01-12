@@ -46,26 +46,26 @@ $('.button-collapse').sideNav();
 
 
 // // AJAX Coin List
-$.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
-.done(function(ticker) {
-  tickerData = ticker;
-});
+// $.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
+// .done(function(ticker) {
+//   tickerData = ticker;
+// });
 
 
-function watchlistText(){
-  for(var i = 0; i < watchlistTickers.length; i++){
-    $('#' + watchlistTickers[i] + '-price').html('$' + tickerData.find(function(coin){
-      return coin.symbol === watchlistTickers[i];
-    }).price_usd);
-    $('#' + watchlistTickers[i] + '-24h-change').html(tickerData.find(function(coin){
-      return coin.symbol === watchlistTickers[i];
-    }).percent_change_24h + '%');
-  }
-}
+// function watchlistText(){
+//   for(var i = 0; i < watchlistTickers.length; i++){
+//     $('#' + watchlistTickers[i] + '-price').html('$' + tickerData.find(function(coin){
+//       return coin.symbol === watchlistTickers[i];
+//     }).price_usd);
+//     $('#' + watchlistTickers[i] + '-24h-change').html(tickerData.find(function(coin){
+//       return coin.symbol === watchlistTickers[i];
+//     }).percent_change_24h + '%');
+//   }
+// }
 
 
 //add to watchlist click listener 
-$('.watchlist-link').click(function(wc){
+$('.watchlist-add').click(function(wc){
   wc.preventDefault()
   $.post($(this).attr('href'))
   // console.log($(this).attr('href'));

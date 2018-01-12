@@ -39,8 +39,8 @@
           <%= tickerData[i].percent_change_24h %>
         </td>
         <td>
-          <button href="/watchlist" class="watchlist-add">+ Watchlist</button>
-          <button href="/portfolio" class="portfolio-add">+ Portfolio</button>
+          <button href="/watchlist/<%=tickerData[i].symbol%>" class="watchlist-add">+ Watchlist</button>
+          <!-- <button href="/portfolio" class="portfolio-add">+ Portfolio</button> -->
         </td>
       </tr>
       <% }; %>

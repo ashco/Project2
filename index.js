@@ -27,6 +27,7 @@ function getData(){
       tmcData = JSON.parse(body);
     });
   });
+  console.log('API data got!');
 };  
 
 getData()

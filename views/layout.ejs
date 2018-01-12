@@ -14,22 +14,22 @@
   <body>
 
     <!-- Navbar -->
-
-    <% include partials/navbar.ejs %>
-
+    <header>
+      <% include partials/navbar.ejs %>
+    </header>
+    
     <!-- Main Section -->
-    <section id="main">
+    <main id="main">
       <div class="container">
         <div class="row">
-
           <!-- Main Nav -->
-          <% include partials/alerts.ejs %>
 
+          <% include partials/alerts.ejs %>
           <%- body %>
 
         </div>
       </div>
-    </section>
+    </main>
 
     <!-- Footer  -->
     <% include partials/footer.ejs %>

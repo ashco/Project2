@@ -72,6 +72,6 @@ app.use('/portfolio', require('./controllers/portfolio.js'));
 // app.use('/wallets', require('./controllers/wallets.js'));
 
 
-var server = app.listen(5000);
+var server = app.listen(process.env.PORT || 3000);
 
 module.exports = server;

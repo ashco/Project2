@@ -20,14 +20,13 @@ getData()
 
 
 router.get('/', isLoggedIn, function(req, res){
-// router.get('/', isLoggedIn, function(req, res){
   db.preference.findAll({
-    //change to make match for when user id is for current user, not just user 1
-    where: { userId: 1 },
-    // where: { userId: req.user.id },
+    where: { 
+      userId: req.user.id,
+      watchlist: 1
+    },
     include: [db.coin]
   }).then(function(watchlistData){
-    // console.log(tickerData);
     res.render('watchlist.ejs', {
       watchlistData: watchlistData,
       tickerData: tickerData
@@ -37,16 +36,11 @@ router.get('/', isLoggedIn, function(req, res){
 
 
 router.post('/:coin', function(req, res){
-  console.log(req.user.id);
-  //finds selected :coin from coin table and links all preferences with it
   db.coin.findOne({
     where: { ticker: req.params.coin },
     include: [db.preference]
-    // finds/creates when watchlist is 1 (aka true)
   }).then(function(data){
-    console.log('THIS IS DATA: ', data);
-    // var coinNum = 7;
-      // req.params.coin
+    console.log('THIS IS DATA: ', data.id);
     db.preference.findOrCreate({
       // find preference table row where...
       where: { 
@@ -55,14 +49,14 @@ router.post('/:coin', function(req, res){
         // AND coinId column is 
         coinId: data.id,
         // AND item is on watchlist
-        watchlist: '1'
+        watchlist: 1
       },
       //Didn't find? Create this
       include: [db.coin],
       defaults: {
         userId: req.user.id,
         coinId: data.id,
-        watchlist: '1'
+        watchlist: 1
       }
     //if new entry is needed, add it to Preferences table
     }).spread(function(newEntry, wasCreated){
@@ -78,23 +72,32 @@ router.post('/:coin', function(req, res){
 });
 
 
-// post, 
-//   find or create
-//     WHERE - userId, coinId, and watchlist all match
-//       either entry 
-//         and do nothing
-//       or no entry
-//         create table entries
-//           userId - logged in user
-//           coinId - from posted :coin
-//           watchlist - 1 
-//           value - null
-
-
-
-
 router.delete('/:coin', function(req, res){
-  console.log('watchlist/:id DELETE works');
+  console.log('watchlist/:id DELETE works', req.params.coin);
+
+
+
+
+
+
+  db.coin.findOne({
+    where: { ticker: req.params.coin },
+    include: [db.preference]
+  }).then(function(data){
+    // console.log('THIS IS DATA', data.id);
+    db.preference.update({
+      watchlist: 0 
+    }, {
+      where: { 
+        userId: req.user.id,
+        coinId: data.id
+      }
+    })
+    res.send('success')
+  }).catch(function(err){
+    console.log('An error has occurred', err);
+    res.send('fail');
+  });
 });
 
 module.exports = router;

@@ -65,22 +65,16 @@ $('.button-collapse').sideNav();
 
 
 //add to watchlist click listener 
-$('.watchlist-add').click(function(wc){
-  wc.preventDefault()
+$('.watchlist-add').click(function(wlAdd){
+  wlAdd.preventDefault()
   $.post($(this).attr('href'))
-  // console.log($(this).attr('href'));
-  // $.ajax({
-  //   url: $(this).attr('href'),
-  //   method: 'POST'
-  // }).done(function(data){
-
-  // });
 });
 
-
-//Runs on initialization
-function init(){
-  // tmcText();
-} 
-
-// init();
+$('.watchlist-remove').click(function(wlRemove){
+  $.ajax({
+    url: $(this).attr('href'),
+    method: 'DELETE'
+  }).done(function(data){
+    location.reload();
+  });
+});

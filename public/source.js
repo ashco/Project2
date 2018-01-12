@@ -18,6 +18,11 @@ var watchlistArray;
 // MATERIALIZE STUFF
 // Mobile hamburger menu
 $('.button-collapse').sideNav();
+$('.modal').modal();
+// $(document).ready(function(){
+  // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+  // $('.modal').modal();
+// });
 
 // Datatable functionality via..
 // https://datatables.net/examples/styling/material.html
@@ -34,10 +39,10 @@ $('.button-collapse').sideNav();
 //not needed now, using ejs
 // AJAX STUFF
 // AJAX Total Market Cap
-// $.get('https://api.coinmarketcap.com/v1/global/')
-// .done(function(global){
-//   tmcNum = global.total_market_cap_usd.toString();
-// });
+$.get('https://api.coinmarketcap.com/v1/global/')
+.done(function(global){
+  tmcNum = global.total_market_cap_usd.toString();
+});
 
 // Inserts total market cap gathered data into page
 // function tmcText(){
@@ -46,10 +51,10 @@ $('.button-collapse').sideNav();
 
 
 // // AJAX Coin List
-// $.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
-// .done(function(ticker) {
-//   tickerData = ticker;
-// });
+$.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
+.done(function(ticker) {
+  tickerData = ticker;
+});
 
 
 // function watchlistText(){

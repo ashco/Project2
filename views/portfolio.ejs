@@ -2,41 +2,46 @@
 
 <div id="portfolio-div" class="col s12">
   <h2>Portfolio</h2>
+
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
 
   <table id="main-table" class="mdl-data-table bordered highlight" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th>Name</th>
-        <th>Market Cap</th>
         <th>Price</th>
-        <th>Volume (24h)</th>
-        <th>Change (24h)</th>
+        <th>HODLings</th>
+        <th>Value (USD)</th>
+        <th>%</th>
+        <th>+</th>
+        <th>-</th>
       </tr>
     </thead>
 
     <tbody>
-      <tr>
-        <td>Bitcoin</td>
-        <td>$239,232,028,794</td>
-        <td>$14,262.00</td>
-        <td>$12,575,300,000</td>
-        <td>8.46%</td>
+
+      <% portfolioData.forEach(function(pData){ %>
+      <tr id="<%= pData.coin.ticker %>-p-row">
+        <td id="<%= pData.coin.ticker %>-p-name">
+          <%= pData.coin.name %>
+        </td>
+        <td id="<%= pData.coin.ticker %>-p-price">
+          <% tickerData.forEach(function(coin){ %>
+            <% if(coin.symbol === pData.coin.ticker){ %>
+              $<%= coin.price_usd %>
+            <% } %>
+          <% }); %>
+        </td>
+        <td id="<%= pData.coin.ticker %>-p-holdings">
+          <%= pData.holding %>
+        </td>
+        <td id="<%= pData.coin.ticker %>-p-value">$$$</td>
+        <td id="<%= pData.coin.ticker %>-p-percentage">%%%</td>
+        <td><button href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-edit">Edit</button></td>
+        <td><button href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-remove">Remove</button></td>
       </tr>
-      <tr>
-        <td>Ripple</td>
-        <td>$87,839,848,766</td>
-        <td>$2.27</td>
-        <td>$5,342,910,000</td>
-        <td>1.73%</td>
-      </tr>
-      <tr>
-        <td>Ethereum</td>
-        <td>$73,409,302,073</td>
-        <td>$759.23</td>
-        <td>$2,604,490,000</td>
-        <td>5.80%</td>
-      </tr>
+      <% }); %>
+
     </tbody>
   </table>
 </div>

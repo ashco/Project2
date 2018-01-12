@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     coinId: DataTypes.INTEGER,
     watchlist: DataTypes.INTEGER,
-    value: DataTypes.INTEGER
+    value: DataTypes.INTEGER,
+    holding: DataTypes.NUMERIC
   }, {
     classMethods: {
       associate: function(models) {

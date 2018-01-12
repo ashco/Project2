@@ -16,25 +16,29 @@
     </thead>
 
     <tbody>
-      <% watchlistData.forEach(function(wl){ %>
-      <tr id="<%= wl.coin.ticker %>-wl-row">
-        <td id="<%= wl.coin.ticker %>-wl-name">
-          <%= wl.coin.name %></td>
-        <td id="<%= wl.coin.ticker %>-wl-price">
+      <% watchlistData.forEach(function(wlData){ %>
+      <tr id="<%= wlData.coin.ticker %>-wl-row">
+        <td id="<%= wlData.coin.ticker %>-wl-name">
+          <%= wlData.coin.name %>
+        </td>
+        <td id="<%= wlData.coin.ticker %>-wl-price">
           <% tickerData.forEach(function(coin){ %>
-            <% if(coin.symbol === wl.coin.ticker){ %>
+            <% if(coin.symbol === wlData.coin.ticker){ %>
               $<%= coin.price_usd %>
             <% } %>
           <% }); %>
         </td>
-        <td id="<%= wl.coin.ticker %>-wl-24h-change">
+        <td id="<%= wlData.coin.ticker %>-wl-24h-change">
           <% tickerData.forEach(function(coin){ %>
-            <% if(coin.symbol === wl.coin.ticker){ %>
+            <% if(coin.symbol === wlData.coin.ticker){ %>
               <%= coin.percent_change_24h %>%
             <% } %>
           <% }); %>
         </td>
-        <td><button href="/watchlist/<%= wl.coin.ticker %>" class="watchlist-remove">Remove</button></td>
+        <td>
+          <a href="#p-add-modal" class="waves-effect waves-light btn modal-trigger #f57c00 orange darken-2">HODL</a>
+          <a href="/watchlist/<%= wlData.coin.ticker %>" class="watchlist-remove waves-effect waves-light btn #f57c00 orange darken-2">Remove</a>
+        </td>
       </tr>
       <% }); %>
     </tbody>

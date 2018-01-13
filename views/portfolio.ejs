@@ -14,7 +14,6 @@
         <th>Value (USD)</th>
         <th>%</th>
         <th>+</th>
-        <th>-</th>
       </tr>
     </thead>
 
@@ -37,8 +36,17 @@
         </td>
         <td id="<%= pData.coin.ticker %>-p-value">$$$</td>
         <td id="<%= pData.coin.ticker %>-p-percentage">%%%</td>
-        <td><button href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-edit">Edit</button></td>
-        <td><button href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-remove">Remove</button></td>
+        
+        <!-- <td>
+          <button href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-edit">Edit</button>
+          <button href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-remove">Remove</button>
+        </td> -->
+
+        <td>
+          <a href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-edit btn-floating btn waves-effect waves-light grey"><i class="material-icons">menu</i></a>
+          <a href="/portfolio/<%= pData.coin.ticker %>" class="portfolio-remove btn-floating btn waves-effect waves-light red"><i class="material-icons">clear</i></a>
+        </td>
+
       </tr>
       <% }); %>
 

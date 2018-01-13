@@ -36,5 +36,8 @@
     "sequelize": "^3.30.4",
     "sequelize-cli": "^3.2.0",
     "sessions": "0.0.2-7"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
   }
 }

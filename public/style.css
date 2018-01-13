@@ -1,9 +1,9 @@
 /*#546e7a blue-grey darken-1*/
 
-/*#f57c00 orange darken-2*/
+/* #f57c00 orange darken-2 */
 
 #header {
-  /*background-color: #f57c00;*/
+  /* background-color: #f57c00; */
 }
 
 #market-cap-div h2 {
@@ -23,4 +23,19 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+#portfolio-add {
+  height: 500px;
+  width: 400px;
+}
+
+.modal-header > h4 {
+  color: #fafafa;
+  padding: 20px;
+  margin: 0;
+}
+
+.modal-content {
+  padding: 12px; 
 }

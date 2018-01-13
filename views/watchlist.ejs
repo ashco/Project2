@@ -36,8 +36,9 @@
           <% }); %>
         </td>
         <td>
-          <a href="#p-add-modal" class="waves-effect waves-light btn modal-trigger #f57c00 orange darken-2">HODL</a>
-          <a href="/watchlist/<%= wlData.coin.ticker %>" class="watchlist-remove waves-effect waves-light btn #f57c00 orange darken-2">Remove</a>
+          <!-- <a href="#p-add-modal" class="waves-effect waves-light btn modal-trigger #f57c00 orange darken-2">HODL</a> -->
+          <!-- <a class="watchlist-remove waves-effect waves-light btn #f57c00 orange darken-2">Remove</a> -->
+          <a href="/watchlist/<%= wlData.coin.ticker %>" class="watchlist-remove btn-floating btn waves-effect waves-light red"><i class="material-icons">clear</i></a>
         </td>
       </tr>
       <% }); %>

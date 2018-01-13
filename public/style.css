@@ -26,7 +26,7 @@ main {
 }
 
 #portfolio-add {
-  height: 500px;
+  height: 450px;
   width: 400px;
 }
 
@@ -34,8 +34,17 @@ main {
   color: #fafafa;
   padding: 20px;
   margin: 0;
+  text-align: center;
 }
 
 .modal-content {
   padding: 12px; 
+}
+
+.portfolio-form {
+  width: 160px;
+}
+
+.portfolio-form-row {
+  height: 40px;
 }

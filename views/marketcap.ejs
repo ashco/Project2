@@ -4,18 +4,17 @@
   <section>
     <h2>Market Cap<small> Total: $<span id="tmc-num"><%= tmcData.total_market_cap_usd %></span></small></h2>
   </section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
-
 
   <table id="main-table" class="bordered highlight responsive-table" cellspacing="0" width="100%">
     <thead>
       <tr>
+        <th>Rank</th>
         <th>Name</th>
         <th>Market Cap</th>
         <th>Price</th>
         <th>Volume (24h)</th>
         <th>Change (24h)</th>
-        <th>+</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -23,6 +22,9 @@
 
       <% for(var i = 0; i < 25; i++){ %>
       <tr id="mc-tr-<%= i+1 %>">
+        <td id="mc-row-<%= i+1 %>">  
+          <%= i+1 %>
+        </td>
         <td id="mc-name-<%= i+1 %>">
           <%= tickerData[i].name %>
         </td>
@@ -39,9 +41,11 @@
           <%= tickerData[i].percent_change_24h %>%
         </td>
         <td>
-          <!-- <a href="#p-add-modal" class="waves-effect waves-light btn modal-trigger #f57c00 orange darken-2">HODL</a> -->
+        <% if(!currentUser){ %>
+          <a href="/watchlist/<%=tickerData[i].symbol%>" class="disabled watchlist-add waves-effect waves-light btn #f57c00 orange darken-2">Watch</a>
+        <% } else { %>
           <a href="/watchlist/<%=tickerData[i].symbol%>" class="watchlist-add waves-effect waves-light btn #f57c00 orange darken-2">Watch</a>
-          <!-- <button href="#p-add-modal" class="waves-effect waves-light btn modal-trigger">+ Portfolio</button> -->
+        <% } %>
         </td>
 
       </tr>
@@ -50,6 +54,8 @@
     </tbody>
   </table>
 
+  <% include partials/portfolio-add.ejs %>
+  
 </div>
 
 

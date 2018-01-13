@@ -2,9 +2,18 @@
 
 /* #f57c00 orange darken-2 */
 
+/* NAV */
 #header {
   /* background-color: #f57c00; */
 }
+
+.mobile-nav-header {
+  height: 64px;
+  font-size: 2.1rem;
+  color: #ffffff;
+  background-color: #465A63;
+}
+
 
 #market-cap-div h2 {
   font-weight: 500;
@@ -25,12 +34,16 @@ main {
   flex: 1 0 auto;
 }
 
+
+
+
+/* MODAL */
 #portfolio-add {
   height: 450px;
-  width: 400px;
+  width: 360px;
 }
 
-.modal-header > h4 {
+.modal-header > h5 {
   color: #fafafa;
   padding: 20px;
   margin: 0;

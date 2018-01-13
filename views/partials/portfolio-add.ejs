@@ -1,6 +1,6 @@
 <div id="portfolio-add" class="modal">
 	<div class="modal-header #546e7a blue-grey darken-2">
-		<h4>What do you HODL?</h4>
+		<h5>What do you HODL?</h5>
 	</div>
 	<div class="modal-content">
 		<div class="row">
@@ -8,37 +8,55 @@
 				<div class="row">
 					<div class="col s12 portfolio-form-row">
 						<div class="input-field col s12">
-							<select>
-								<option value="" disabled selected>Choose your Symbol</option>
-								<option value="1">Option 1</option>
+							<select id="pf-coin-select" onchange="priceUpdate()">
+								<option value="" disabled selected>Choose a Coin</option>
+								<% coinData.forEach(function(cd){ %>
 
+
+
+									<option value="<%= cd.ticker %>"><%= cd.name %> (<%= cd.ticker %>)</option>
+							
+							
+							
+							
+							
+								<% }); %>
 							</select>
 						</div>
 					</div>
 				</div>
+
 				<div class="row">
 					<div class="col s12 portfolio-form-row">
 						Price USD:
 						<div class="input-field inline">
-							<input id="" value="10,432.54" disabled>								<!-- <label for="email" data-error="wrong" data-success="right">Email</label> -->
+							<input id="pf-price-input" disabled>
 						</div>
 					</div>
 				</div>
+
 				<div class="row">
 					<div class="col s12 portfolio-form-row">
 						Amount:
 						<div class="input-field inline">
+
+
+
 							<input id="holding" type="number" step="any" class="validate">
+
+
+
 							<!-- <label>HODLings</label> -->
 						</div>
 					</div>
 				</div>
+
 				<div>
 					<div class="row">
 						<div class="col s12 portfolio-form-row">
 							Total USD:
 							<div class="input-field inline">
-								<input id="" value="100,432.54" disabled>								<!-- <label for="email" data-error="wrong" data-success="right">Email</label> -->
+								<input value="$100,432.54" disabled>
 							</div>
 						</div>
 					</div>
@@ -48,6 +66,6 @@
 	</div>
 	<div class="modal-footer #546e7a blue-grey darken-2">
 		<!-- <a href="#!" class="modal-action modal-close waves-effect waves-light btn">Cancel</a> -->
-		<a href="#!" class="modal-action modal-close waves-effect waves-light btn #f57c00 orange darken-2">Add</a>
+		<a href="/portfolio" class="portfolio-add modal-action modal-close waves-effect waves-light btn #f57c00 orange darken-2">Add</a>
 	</div>
 </div>

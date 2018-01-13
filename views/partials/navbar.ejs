@@ -23,6 +23,9 @@
       <% } %>
     </ul>
     <ul class="side-nav" id="mobile-menu">
+      <li class="mobile-nav-header">
+        <a>RE:crypt</a>
+      </li>
       <li>
         <a href="/">Market Cap</a>
       </li>
@@ -33,17 +36,12 @@
         <a href="/portfolio">Portfolio</a>
       </li>
       <li>
-        <a href="/wallets">Wallets</a>
-      </li>
       <% if(!currentUser){ %>
-      <li>
         <a href="/auth/login" class="waves-effect waves-light btn #f57c00 orange darken-2">Login</a>
-      </li>
-      <% } else { %>
-      <li>
+        <% } else { %>
         <a href="/auth/logout" class="waves-effect waves-light btn #f57c00 orange darken-2">Logout</a>
-      </li>
       <% } %>
+      </li>
     </ul>
     </ul>
   </div>

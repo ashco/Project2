@@ -20,6 +20,23 @@ var watchlistArray;
 $('.button-collapse').sideNav();
 $('.modal').modal();
 $('select').material_select();
+
+
+//Portfolio Modal
+
+function priceUpdate() {
+  var x = document.getElementById("pf-coin-select").selectedIndex;
+  var y = document.getElementById("pf-coin-select").options;
+  console.log(y[x].text);
+  
+
+  document.getElementById("pf-price-input").setAttribute("value", "$" + y[x].text);
+}
+
+
+
+// var pfSelectedCoin = $( :selected").text();
+
 // $(document).ready(function(){
   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
   // $('.modal').modal();
@@ -83,4 +100,10 @@ $('.watchlist-remove').click(function(wlRemove){
   }).done(function(data){
     location.reload();
   });
+});
+
+//add to portfolio click listener 
+$('.portfolio-add').click(function(pfAdd){
+  pfAdd.preventDefault()
+  $.post($(this).attr('href'))
 });

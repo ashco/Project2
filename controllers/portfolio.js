@@ -18,12 +18,11 @@ function getData(){
 
 getData()
 
-router.get('/', function(req, res){
+router.get('/', isLoggedIn, function(req, res){
 // router.get('/', isLoggedIn, function(req, res){
   db.preference.findAll({
     where: { 
-      userId: 2,
-      // userId: req.user.id,
+      userId: req.user.id,
       // Need to only find table entries with value
       // value: 1
     },
@@ -38,7 +37,7 @@ router.get('/', function(req, res){
 
 // Route that form will post to
 router.post('/', function(req, res){
-  console.log('/portfolio POST working');
+  console.log('/portfolio POST working', req.params);
 });
 
 //Deletes selected id from database

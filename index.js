@@ -9,6 +9,7 @@ var isLoggedIn = require("./middleware/isLoggedIn.js");
 var pagePop = require("./middleware/pagePopulator.js");
 var passport = require("./config/ppConfig.js");
 var session = require("express-session");
+var db = require("./models")
 var app = express();
 
 //API URLs
@@ -54,11 +55,18 @@ app.use(function(req, res, next) {
 
 //Root directory
 app.get("/", function(req, res) {
-  res.render("marketcap.ejs", {
-    tickerData: tickerData,
-    tmcData: tmcData
+  db.coin.findAll({
+    // order: sequelize.col(ticker)
+  })
+  .then(function(coinData){
+    res.render("marketcap.ejs", {
+      tickerData: tickerData,
+      tmcData: tmcData,
+      coinData: coinData
+    });
   });
 });
+
 
 app.get("/marketcap", function(req, res) {
   res.redirect("/");

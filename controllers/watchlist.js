@@ -19,6 +19,21 @@ function getData(){
 getData()
 
 
+//Root directory
+// app.get("/", function(req, res) {
+//   db.coin.findAll({
+//     // order: sequelize.col(ticker)
+//   })
+//   .then(function(coinData){
+//     res.render("marketcap.ejs", {
+//       tickerData: tickerData,
+//       tmcData: tmcData,
+//       coinData: coinData
+//     });
+//   });
+// });
+
+
 router.get('/', isLoggedIn, function(req, res){
   db.preference.findAll({
     where: { 
@@ -60,7 +75,7 @@ router.post('/:coin', function(req, res){
       }
     //if new entry is needed, add it to Preferences table
     }).spread(function(newEntry, wasCreated){
-      console.log('###########', newEntry, ' ############## ', wasCreated, "########################");
+      // console.log('###########', newEntry, ' ############## ', wasCreated, "########################");
       if(wasCreated){
         data.addPreference(newEntry);
       }
@@ -71,15 +86,7 @@ router.post('/:coin', function(req, res){
   })
 });
 
-
 router.delete('/:coin', function(req, res){
-  console.log('watchlist/:id DELETE works', req.params.coin);
-
-
-
-
-
-
   db.coin.findOne({
     where: { ticker: req.params.coin },
     include: [db.preference]

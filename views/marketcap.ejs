@@ -1,11 +1,8 @@
 <!-- Market Cap -->
-
 <div id="market-cap-div" class="col s12">
   <section>
-    <h2>Market Cap<small> Total: $<span id="tmc-num"><%= tmcData.total_market_cap_usd %></span></small></h2>
+    <h2>Market Cap<br class="mc-break"><small> Total: $<span id="tmc-num"><%= tmcData.total_market_cap_usd %></span></small></h2>
   </section>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque ea rerum hic minus earum assumenda, sint perspiciatis laudantium est dignissimos sapiente temporibus illo non ab distinctio eius ad reiciendis culpa!</p>
-
 
   <table id="main-table" class="bordered highlight responsive-table" cellspacing="0" width="100%">
     <thead>
@@ -39,9 +36,11 @@
           <%= tickerData[i].percent_change_24h %>%
         </td>
         <td>
-          <!-- <a href="#p-add-modal" class="waves-effect waves-light btn modal-trigger #f57c00 orange darken-2">HODL</a> -->
+        <% if(!currentUser){ %>
+          <a href="/watchlist/<%=tickerData[i].symbol%>" class="watchlist-add waves-effect waves-light btn #f57c00 orange darken-2 disabled">Watch</a>
+        <% } else { %>
           <a href="/watchlist/<%=tickerData[i].symbol%>" class="watchlist-add waves-effect waves-light btn #f57c00 orange darken-2">Watch</a>
-          <!-- <button href="#p-add-modal" class="waves-effect waves-light btn modal-trigger">+ Portfolio</button> -->
+        <% } %>
         </td>
 
       </tr>

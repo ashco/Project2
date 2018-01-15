@@ -1,6 +1,6 @@
 <% if(alerts.error) { %>
   <% alerts.error.forEach(function(msg){ %>
-    <div class="alert alert-danger">
+    <div class="alert z-depth-3">
       <%= msg %>
     </div>
   <% }); %>
@@ -8,7 +8,7 @@
 
 <% if(alerts.success) { %>
   <% alerts.success.forEach(function(msg){ %>
-    <div class="alert alert-success">
+    <div class="alert z-depth-3">
       <%= msg %>
     </div>
   <% }); %>

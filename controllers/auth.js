@@ -14,7 +14,7 @@ router.get('/login', function(req, res){
 
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/watchlist',
-  successFlash: 'Login Successful',
+  successFlash: 'Login Success!',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid Credentials'
 }));
@@ -39,7 +39,7 @@ router.post('/signup', function(req, res, next){
       //good job, didn't try to make a duplicate
       passport.authenticate('local', {
         successRedirect: '/portfolio',
-        successFlash: 'Successfully logged in!'
+        successFlash: 'Logged in!'
       })(req, res, next);
     }
     else {
@@ -57,7 +57,7 @@ router.post('/signup', function(req, res, next){
 //LOGOUT
 router.get('/logout', function(req, res){
   req.logout();
-  req.flash('success', 'Successfully logged out');
+  req.flash('success', 'Logged out');
   res.redirect('/');
 });
 

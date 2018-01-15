@@ -84,3 +84,13 @@ $('.watchlist-remove').click(function(wlRemove){
     location.reload();
   });
 });
+
+setTimeout(function(){
+  $('.alert').addClass('animated fadeOut')
+}, 3000);
+
+
+function alertFade(){
+  $('.alert').addClass('animated fadeOut');
+}
+

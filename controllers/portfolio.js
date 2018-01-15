@@ -1,8 +1,9 @@
 var express = require('express');
 var isLoggedIn = require('../middleware/isLoggedIn.js');
 var db = require('../models');
+var Sequelize = require('sequelize');
+var Op = Sequelize.Op;
 var router = express.Router();
-
 
 //Duplicate for now, will try to DRY up later..
 var request = require('request');
@@ -24,7 +25,7 @@ router.get('/', isLoggedIn, function(req, res){
     where: { 
       userId: req.user.id,
       // Need to only find table entries with value
-      // value: 1
+      // holding: !null
     },
     include: [db.coin]
   }).then(function(portfolioData){

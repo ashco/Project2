@@ -12,14 +12,8 @@
 								<option value="" disabled selected>Choose a Coin</option>
 								<% coinData.forEach(function(cd){ %>
 
-
-
-									<option value="<%= cd.ticker %>"><%= cd.name %> (<%= cd.ticker %>)</option>
-							
-							
-							
-							
-							
+									<option name="coinId" value="<%= cd.id %>"><%= cd.name %> (<%= cd.ticker %>)</option>
+									
 								<% }); %>
 							</select>
 						</div>
@@ -41,10 +35,7 @@
 						<div class="input-field inline">
 
 
-
-							<input id="holding" type="number" step="any" class="validate">
-
-
+							<input name="holding" type="number" step="any" class="validate">
 
 							<!-- <label>HODLings</label> -->
 						</div>
@@ -61,6 +52,7 @@
 						</div>
 					</div>
 				</div>
+				<input type="submit" name="">
 			</form>
 		</div>
 	</div>

@@ -25,6 +25,7 @@ function getData() {
     tickerData = JSON.parse(body);
     request(tmcURL, function(error, response, body) {
       tmcData = JSON.parse(body);
+      console.log(tmcData)
     });
   });
   console.log("API data got!");
@@ -67,7 +68,6 @@ app.get("/", function(req, res) {
   });
 });
 
-
 app.get("/marketcap", function(req, res) {
   res.redirect("/");
 });
@@ -76,7 +76,6 @@ app.get("/marketcap", function(req, res) {
 app.use("/auth", require("./controllers/auth.js"));
 app.use("/watchlist", require("./controllers/watchlist.js"));
 app.use("/portfolio", require("./controllers/portfolio.js"));
-// app.use('/wallets', require('./controllers/wallets.js'));
 
 var server = app.listen(process.env.PORT || 3000);
 

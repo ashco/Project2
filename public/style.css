@@ -31,6 +31,23 @@ td.neg-change {
   color: rgb(233, 32, 32);
 }
 
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background: #DFDFDF;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+@media (min-width: 600px){
+  .mc-break { 
+    display: none;
+  }
+}
+
 /* #portfolio-add {
   height: 450px;
   width: 400px;
@@ -54,20 +71,3 @@ td.neg-change {
 .portfolio-form-row {
   height: 40px;
 } */
-
-.alert {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  background: #DFDFDF;
-  font-size: 18px;
-  font-weight: 500;
-  margin-top: 16px;
-}
-
-@media (min-width: 600px){
-  .mc-break { 
-    display: none;
-  }
-}

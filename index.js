@@ -16,11 +16,11 @@ var app = express();
 var tickerURL = "https://api.coinmarketcap.com/v1/ticker/?limit=100";
 var tmcURL = "https://api.coinmarketcap.com/v1/global/";
 
-//API data
+//API DATA
 var tickerData;
 var globalData;
-var tmcUSD;
 
+//DATA POLL
 function getData() {
   request(tickerURL, function(error, response, body) {
     tickerData = JSON.parse(body);
@@ -33,10 +33,9 @@ function getData() {
   });
   request(tmcURL, function(error, response, body) {
     globalData = JSON.parse(body);
-    // tmcUSD = numeral(globalData.total_market_cap_usd).format('$0,0');
     globalData.total_market_cap_usd = numeral(globalData.total_market_cap_usd).format('$0,0');
   });
-  console.log("API data got'd!");
+  console.log('Data got\'d');
 }
 
 //MIDDLEWARE
@@ -72,12 +71,19 @@ app.get("/marketcap", function(req, res) {
   res.redirect("/");
 });
 
-//Declaring Routes
+//ROUTES
 app.use("/auth", require("./controllers/auth.js"));
 app.use("/watchlist", require("./controllers/watchlist.js"));
 // app.use("/portfolio", require("./controllers/portfolio.js"));
 
+//PULL API DATA
 getData();
+
+//API DATA REFRESH
+setInterval(function(){
+  getData()
+  console.log('Fresh data!')
+}, 60000);
 
 var server = app.listen(process.env.PORT || 3000);
 

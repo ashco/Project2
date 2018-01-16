@@ -25,35 +25,29 @@
 
 var request = require("request");
 
-var pullSize = 20;
+var pullSize = 500;
 var dbPullURL = "https://api.coinmarketcap.com/v1/ticker/?limit=" + pullSize;
 
-var coinData;
-var name = "";
-var symbol = "";
-var dbData = {};
-dbData[name] = "";
-
-// var foo = "bar";
-// var ob  = {};
-// ob[foo] = "something";
-
+var coinTableData;
+var coinTableName = [];
+var coinTableSymbol = [];
 
 
 function getData() {
     request(dbPullURL, function(error, response, body) {
-        coinData = JSON.parse(body);
+        coinTableData = JSON.parse(body);
         for(var i = 0; i < pullSize; i++){
-            dbData[name].push(coinData[i].name);
+            coinTableName.push(coinTableData[i].name);
+            coinTableSymbol.push(coinTableData[i].symbol); 
         }
     });
-    // console.log(dbData)
 };
 
 function init(){
     getData();
     setTimeout(function(){
-        console.log(dbData)
+        console.log('NAME %%%%%%%%%%%%%%%', coinTableName);
+        console.log('SYMBOL%%%%%%%%%%%%', coinTableSymbol);
         // console.log(coinData.symbol)
     }, 5000)
 }

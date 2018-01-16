@@ -6,7 +6,6 @@ db.preference.create({
   watchlist: 3,
   value: 4
 }).then(function(preference) {
-  // console.log(preference.get());
 });
 
 db.user.find({

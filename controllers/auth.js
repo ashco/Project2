@@ -43,11 +43,11 @@ router.post('/signup', function(req, res, next){
     else {
       //bad job, you tried to make a duplicate
       req.flash('error', 'Email already exists');
-      res.redirect('auth/login.ejs');
+      res.redirect('auth/login');
     }
   }).catch(function(err){
     req.flash('error', err.message);
-    res.redirect('auth/signup.ejs');
+    res.redirect('/auth/signup');
   });
 });
 

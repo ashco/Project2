@@ -37,7 +37,7 @@ router.post('/signup', function(req, res, next){
       //good job, didn't try to make a duplicate
       passport.authenticate('local', {
         successRedirect: '/watchlist',
-        successFlash: 'Logged in!'
+        successFlash: 'Welcome to RE:crypt!'
       })(req, res, next);
     }
     else {

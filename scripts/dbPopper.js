@@ -1,11 +1,13 @@
 // SQL DB INSERT COMMAND
-INSERT INTO coins (name, ticker)
+INSERT INTO coins (name, ticker, createdAt)
 VALUES 
-    ('Bitcoin''BTC'),
-    ('Ethereum', 'ETH'),
-    ('Ripple', 'XRP'),
-    ('Bitcoin Ca',   'BCH'),
-    ('Cardano', 'ADA'),
+    ('Bitcoin''BTC', '2018-01-12 12:27:38.749-08'),
+    ('Ethereum', 'ETH', '2018-01-12 12:27:38.749-08'),
+    ('Ripple', 'XRP', '2018-01-12 12:27:38.749-08'),
+    ('Bitcoin Ca',   'BCH', '2018-01-12 12:27:38.749-08'),
+    ('Cardano', 'ADA', '2018-01-12 12:27:38.749-08')
+
+
     ('Litecoin', 'LTC'),
     ('NEO', 'NEO'),
     ('NEM', 'XEM'),

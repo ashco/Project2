@@ -2,11 +2,11 @@
 var mcListLength = 25;
 
 // AJAX VARIABLES
-var tmcNum;
+// var tmcNum;
 
 //raw data from API request
-var tickerData;
-var watchlistArray;
+// var tickerData;
+// var watchlistArray;
 //function converts ticker data into relevant data for site
 // var marketCapData = [
 //   { name: 'Bitcoin', marketCap: '251386982363', price: '14968.2', volume: '18504700000.0', percent_change_24h: '3.35'},
@@ -16,9 +16,8 @@ var watchlistArray;
 
 
 // MATERIALIZE STUFF
-// Mobile hamburger menu
 $('.button-collapse').sideNav();
-$('.modal').modal();
+// $('.modal').modal();
 $('select').material_select();
 // $(document).ready(function(){
   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
@@ -40,10 +39,10 @@ $('select').material_select();
 //not needed now, using ejs
 // AJAX STUFF
 // AJAX Total Market Cap
-$.get('https://api.coinmarketcap.com/v1/global/')
-.done(function(global){
-  tmcNum = global.total_market_cap_usd.toString();
-});
+// $.get('https://api.coinmarketcap.com/v1/global/')
+// .done(function(global){
+//   tmcNum = global.total_market_cap_usd.toString();
+// });
 
 // Inserts total market cap gathered data into page
 // function tmcText(){
@@ -52,10 +51,10 @@ $.get('https://api.coinmarketcap.com/v1/global/')
 
 
 // // AJAX Coin List
-$.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
-.done(function(ticker) {
-  tickerData = ticker;
-});
+// $.get('https://api.coinmarketcap.com/v1/ticker/?limit=25')
+// .done(function(ticker) {
+//   tickerData = ticker;
+// });
 
 
 // function watchlistText(){
@@ -88,9 +87,3 @@ $('.watchlist-remove').click(function(wlRemove){
 setTimeout(function(){
   $('.alert').addClass('animated fadeOut')
 }, 3000);
-
-
-function alertFade(){
-  $('.alert').addClass('animated fadeOut');
-}
-

@@ -32,7 +32,11 @@
         <td id="mc-vol-<%= i+1 %>">
           $<%= tickerData[i]['24h_volume_usd'] %>
         </td>
-        <td id="mc-change-<%= i+1 %>">
+        <td class="mc-change 
+        <% if(Math.sign(parseFloat(tickerData[i].percent_change_24h)) === -1){ %>
+          neg-change 
+        <% } %>
+        ">
           <%= tickerData[i].percent_change_24h %>%
         </td>
         <td>

@@ -21,7 +21,16 @@ main {
   flex: 1 0 auto;
 }
 
-#portfolio-add {
+td.mc-change {
+  font-weight: 500;
+  color: rgb(9, 136, 9);
+}
+
+td.neg-change {
+  color: rgb(233, 32, 32);
+}
+
+/* #portfolio-add {
   height: 450px;
   width: 400px;
 }
@@ -43,7 +52,7 @@ main {
 
 .portfolio-form-row {
   height: 40px;
-}
+} */
 
 .alert {
   display: flex;

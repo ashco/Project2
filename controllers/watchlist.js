@@ -18,7 +18,6 @@ function getData(){
 
 getData()
 
-
 router.get('/', isLoggedIn, function(req, res){
   db.preference.findAll({
     where: { 
@@ -40,7 +39,6 @@ router.post('/:coin', function(req, res){
     where: { ticker: req.params.coin },
     include: [db.preference]
   }).then(function(data){
-    console.log('THIS IS DATA: ', data.id);
     db.preference.findOrCreate({
       // find preference table row where...
       where: { 
@@ -60,7 +58,6 @@ router.post('/:coin', function(req, res){
       }
     //if new entry is needed, add it to Preferences table
     }).spread(function(newEntry, wasCreated){
-      console.log('###########', newEntry, ' ############## ', wasCreated, "########################");
       if(wasCreated){
         data.addPreference(newEntry);
       }
@@ -71,15 +68,7 @@ router.post('/:coin', function(req, res){
   })
 });
 
-
 router.delete('/:coin', function(req, res){
-  console.log('watchlist/:id DELETE works', req.params.coin);
-
-
-
-
-
-
   db.coin.findOne({
     where: { ticker: req.params.coin },
     include: [db.preference]

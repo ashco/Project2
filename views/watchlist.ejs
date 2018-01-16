@@ -11,7 +11,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Change (24h)</th>
-        <th>-</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -28,13 +28,19 @@
             <% } %>
           <% }); %>
         </td>
-        <td id="<%= wlData.coin.ticker %>-wl-24h-change">
+
+        <td class="mc-change 
+          <% if(Math.sign(parseFloat(tickerData[tickerData.findIndex(function(e){return e.symbol===wlData.coin.ticker})].percent_change_24h)) === -1){ %>
+            neg-change 
+          <% } %>
+        ">
           <% tickerData.forEach(function(coin){ %>
             <% if(coin.symbol === wlData.coin.ticker){ %>
               <%= coin.percent_change_24h %>%
             <% } %>
           <% }); %>
         </td>
+
         <td>
           <!-- <a href="#p-add-modal" class="waves-effect waves-light btn modal-trigger #f57c00 orange darken-2">HODL</a> -->
           <!-- <a class="watchlist-remove waves-effect waves-light btn #f57c00 orange darken-2">Remove</a> -->

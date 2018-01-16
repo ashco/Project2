@@ -6,7 +6,6 @@ var router = express.Router();
 //MIDDLEWARE
 router.use(express.static(__dirname + '/../public'));
 
-
 //LOGIN
 router.get('/login', function(req, res){
   res.render('auth/login.ejs');
@@ -18,7 +17,6 @@ router.post('/login', passport.authenticate('local', {
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid Credentials'
 }));
-
 
 //SIGNUP
 router.get('/signup', function(req, res){
@@ -38,7 +36,7 @@ router.post('/signup', function(req, res, next){
     if(wasCreated){
       //good job, didn't try to make a duplicate
       passport.authenticate('local', {
-        successRedirect: '/portfolio',
+        successRedirect: '/watchlist',
         successFlash: 'Logged in!'
       })(req, res, next);
     }
@@ -52,7 +50,6 @@ router.post('/signup', function(req, res, next){
     res.redirect('auth/signup.ejs');
   });
 });
-
 
 //LOGOUT
 router.get('/logout', function(req, res){

@@ -33,7 +33,7 @@ VALUES
     ('Populous', 'PPT'),
     ('VeChain', 'VEN'),
     ('Tether', 'USDT'),
-    ('Status', 'SNT'),
+    ('Status', 'SNT'),   
     ('Steem', 'STEEM'),
     ('BitShares', 'BTS'),
     ('KuCoin Shar',   'KCS'),

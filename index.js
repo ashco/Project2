@@ -1,4 +1,4 @@
-//Declare Modules
+//MODULES
 require("dotenv").config();
 var express = require("express");
 var request = require("request");

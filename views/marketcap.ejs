@@ -1,7 +1,7 @@
 <!-- Market Cap -->
 <div id="market-cap-div" class="col s12">
   <section>
-    <h2>Market Cap<br class="mc-break"><small> Total: $<span id="tmc-num"><%= tmcData.total_market_cap_usd %></span></small></h2>
+    <h2>Market Cap<br class="mc-break"><small> Total: <span id="tmc-num"><%= newTMC %></span></small></h2>
   </section>
 
   <table id="main-table" class="bordered highlight responsive-table" cellspacing="0" width="100%">
@@ -17,7 +17,6 @@
     </thead>
 
     <tbody>
-
       <% for(var i = 0; i < 25; i++){ %>
       <tr id="mc-tr-<%= i+1 %>">
         <td id="mc-name-<%= i+1 %>">

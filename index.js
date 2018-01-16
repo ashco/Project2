@@ -9,6 +9,7 @@ var isLoggedIn = require("./middleware/isLoggedIn.js");
 var pagePop = require("./middleware/pagePopulator.js");
 var passport = require("./config/ppConfig.js");
 var session = require("express-session");
+var numeral = require('numeral');
 var app = express();
 
 //API URLs
@@ -17,13 +18,17 @@ var tmcURL = "https://api.coinmarketcap.com/v1/global/";
 
 //API data
 var tickerData;
-var tmcData;
+var globalData;
+var tmcUSD;
+var newTMC;
 
 function getData() {
   request(tickerURL, function(error, response, body) {
     tickerData = JSON.parse(body);
     request(tmcURL, function(error, response, body) {
-      tmcData = JSON.parse(body);
+      globalData = JSON.parse(body);
+      tmcUSD = globalData.total_market_cap_usd;
+      newTMC = numeral(tmcUSD).format('$0,0');
     });
   });
   console.log("API data got!");
@@ -56,7 +61,7 @@ app.use(function(req, res, next) {
 app.get("/", function(req, res) {
   res.render("marketcap.ejs", {
     tickerData: tickerData,
-    tmcData: tmcData
+    newTMC: newTMC
   });
 });
 

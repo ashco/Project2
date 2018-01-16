@@ -1,5 +1,11 @@
-#header {
-  /* background-color: #f57c00; */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 h2 {
@@ -9,16 +15,6 @@ h2 {
 #market-cap-div small {
   font-weight: 300;
   font-size: 24px;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1 0 auto;
 }
 
 .coin-name {

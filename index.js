@@ -13,19 +13,11 @@ var numeral = require('numeral');
 var app = express();
 
 //API URLs
-var tickerURL = "https://api.coinmarketcap.com/v1/ticker/?limit=25";
+var tickerURL = "https://api.coinmarketcap.com/v1/ticker/?limit=100";
 var tmcURL = "https://api.coinmarketcap.com/v1/global/";
 
 //API data
 var tickerData;
-var marketCap = [];
-
-// market_cap_usd
-// price_usd
-// 24h_volume_usd
-// percent_change_24h
-
-
 var globalData;
 var tmcUSD;
 
@@ -41,14 +33,11 @@ function getData() {
   });
   request(tmcURL, function(error, response, body) {
     globalData = JSON.parse(body);
-    tmcUSD = numeral(globalData.total_market_cap_usd).format('$0,0');
+    // tmcUSD = numeral(globalData.total_market_cap_usd).format('$0,0');
+    globalData.total_market_cap_usd = numeral(globalData.total_market_cap_usd).format('$0,0');
   });
-  console.log("API data got!");
-  console.log('Ticker Data is: ', tickerData);
-  
+  console.log("API data got'd!");
 }
-
-getData();
 
 //MIDDLEWARE
 app.set("view engine", "ejs");
@@ -75,9 +64,8 @@ app.use(function(req, res, next) {
 app.get("/", function(req, res) {
   res.render("marketcap.ejs", {
     tickerData: tickerData,
-    tmcUSD: tmcUSD
+    globalData: globalData
   });
-  console.log('MarketCap is', marketCap)
 });
 
 app.get("/marketcap", function(req, res) {
@@ -88,6 +76,8 @@ app.get("/marketcap", function(req, res) {
 app.use("/auth", require("./controllers/auth.js"));
 app.use("/watchlist", require("./controllers/watchlist.js"));
 // app.use("/portfolio", require("./controllers/portfolio.js"));
+
+getData();
 
 var server = app.listen(process.env.PORT || 3000);
 

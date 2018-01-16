@@ -23,20 +23,20 @@
           <%= tickerData[i].name %>
         </td>
         <td id="mc-marketcap-<%= i+1 %>">
-          $<%= tickerData[i].market_cap_usd %>
+          <%= tickerData[i].market_cap_usd %>
         </td>
         <td id="mc-price-<%= i+1 %>">
-          $<%= tickerData[i].price_usd %>
+          <%= tickerData[i].price_usd %>
         </td>
         <td id="mc-vol-<%= i+1 %>">
-          $<%= tickerData[i]['24h_volume_usd'] %>
+          <%= tickerData[i]['24h_volume_usd'] %>
         </td>
         <td class="mc-change 
         <% if(Math.sign(parseFloat(tickerData[i].percent_change_24h)) === -1){ %>
           neg-change 
         <% } %>
         ">
-          <%= tickerData[i].percent_change_24h %>%
+          <%= tickerData[i].percent_change_24h %>
         </td>
         <td>
         <% if(!currentUser){ %>

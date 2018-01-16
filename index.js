@@ -18,10 +18,7 @@ var tmcURL = "https://api.coinmarketcap.com/v1/global/";
 
 //API data
 var tickerData;
-
-
-
-
+var marketCap = [];
 
 // market_cap_usd
 // price_usd
@@ -35,7 +32,12 @@ var tmcUSD;
 function getData() {
   request(tickerURL, function(error, response, body) {
     tickerData = JSON.parse(body);
-    
+    for(var i = 0; i < tickerData.length; i++){
+      tickerData[i].market_cap_usd = (numeral(tickerData[i].market_cap_usd).format('$0,0'));
+      tickerData[i].price_usd = (numeral(tickerData[i].price_usd).format('$0,0.00'));
+      tickerData[i]['24h_volume_usd'] = (numeral(tickerData[i]['24h_volume_usd']).format('$0,0'));
+      tickerData[i].percent_change_24h = (numeral(tickerData[i].percent_change_24h/100).format('0.00%'));
+    }
   });
   request(tmcURL, function(error, response, body) {
     globalData = JSON.parse(body);
@@ -75,6 +77,7 @@ app.get("/", function(req, res) {
     tickerData: tickerData,
     tmcUSD: tmcUSD
   });
+  console.log('MarketCap is', marketCap)
 });
 
 app.get("/marketcap", function(req, res) {

@@ -21,6 +21,11 @@ main {
   flex: 1 0 auto;
 }
 
+.coin-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 td.mc-change {
   font-weight: 500;
   color: rgb(9, 136, 9);

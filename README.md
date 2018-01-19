@@ -1,6 +1,6 @@
 # WDI Project 2: RE:crypt
 
-<img src="./img/readme/site_shot.png" width="900">
+<img src="./public/img/readme/site_shot.png" width="900">
 
 Live Link: <a href="https://re-crypt.herokuapp.com/">https://re-crypt.herokuapp.com/</a>
 
@@ -22,7 +22,7 @@ This is my first full-stack web app which was developed for Project 2 of General
 
 I really enjoy projects because they provide the chance to slow down and better understand the concepts that our instructors have been attempting to cram into our brains for the past 2 weeks. I didn't know much about backend before this unit, but it turns out I like it and would ideally work on full-stack projects. Databases will still take some getting used to, but the main concepts are clear to me and I realize that I just need to take more time to familiarize myself with Sequelize documentation. 
 
-<img src="./img/readme/trello_tuesday.png" width="900">
+<img src="./public/img/readme/trello_tuesday.png" width="900">
 Tuesday Trello Board State
 
 ### Scope Creep

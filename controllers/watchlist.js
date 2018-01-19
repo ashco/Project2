@@ -3,7 +3,6 @@ var isLoggedIn = require('../middleware/isLoggedIn.js');
 var db = require('../models');
 var router = express.Router();
 
-
 //Duplicate for now, will try to DRY up later..
 var request = require('request');
 var tickerURL = 'https://api.coinmarketcap.com/v1/ticker/?limit=25';
@@ -12,11 +11,10 @@ var tickerData;
 function getData(){
   request(tickerURL, function(error, response, body){
     tickerData = JSON.parse(body);
-    console.log('API data got!');
   });
 }; 
 
-getData()
+getData();
 
 router.get('/', isLoggedIn, function(req, res){
   db.preference.findAll({

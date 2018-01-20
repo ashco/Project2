@@ -9,6 +9,7 @@ This is my first full-stack web app which was developed for Project 2 of General
 ### Technologies Used
 
 - Javascript
+- Node.js / Express
 - HTML/CSS
 - MaterializeCSS
 - EJS

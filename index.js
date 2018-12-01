@@ -1,5 +1,6 @@
 //MODULES
-require("dotenv").config();
+if (process.env.NODE_ENV !== 'production') require('dotenv').config()
+// require("dotenv").config();
 var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
@@ -9,7 +10,7 @@ var isLoggedIn = require("./middleware/isLoggedIn.js");
 var pagePop = require("./middleware/pagePopulator.js");
 var passport = require("./config/ppConfig.js");
 var session = require("express-session");
-var numeral = require('numeral');
+var numeral = require("numeral");
 var app = express();
 
 //API URLs
@@ -24,18 +25,28 @@ var globalData;
 function getData() {
   request(tickerURL, function(error, response, body) {
     tickerData = JSON.parse(body);
-    for(var i = 0; i < tickerData.length; i++){
-      tickerData[i].market_cap_usd = (numeral(tickerData[i].market_cap_usd).format('$0,0'));
-      tickerData[i].price_usd = (numeral(tickerData[i].price_usd).format('$0,0.00'));
-      tickerData[i]['24h_volume_usd'] = (numeral(tickerData[i]['24h_volume_usd']).format('$0,0'));
-      tickerData[i].percent_change_24h = (numeral(tickerData[i].percent_change_24h/100).format('0.00%'));
+    for (var i = 0; i < tickerData.length; i++) {
+      tickerData[i].market_cap_usd = numeral(
+        tickerData[i].market_cap_usd
+      ).format("$0,0");
+      tickerData[i].price_usd = numeral(tickerData[i].price_usd).format(
+        "$0,0.00"
+      );
+      tickerData[i]["24h_volume_usd"] = numeral(
+        tickerData[i]["24h_volume_usd"]
+      ).format("$0,0");
+      tickerData[i].percent_change_24h = numeral(
+        tickerData[i].percent_change_24h / 100
+      ).format("0.00%");
     }
   });
   request(tmcURL, function(error, response, body) {
     globalData = JSON.parse(body);
-    globalData.total_market_cap_usd = numeral(globalData.total_market_cap_usd).format('$0,0');
+    globalData.total_market_cap_usd = numeral(
+      globalData.total_market_cap_usd
+    ).format("$0,0");
   });
-  console.log('Data got\'d');
+  console.log("Data got'd");
 }
 
 //MIDDLEWARE
@@ -80,9 +91,9 @@ app.use("/watchlist", require("./controllers/watchlist.js"));
 getData();
 
 //API DATA REFRESH
-setInterval(function(){
-  getData()
-  console.log('Fresh data!')
+setInterval(function() {
+  getData();
+  console.log("Fresh data!");
 }, 60000);
 
 var server = app.listen(process.env.PORT || 3000);

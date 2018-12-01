@@ -1,5 +1,5 @@
 {
-  "name": "project2",
+  "name": "RE:Crypt",
   "version": "1.0.0",
   "description": "Crypto Tracker",
   "main": "index.js",
@@ -10,12 +10,12 @@
     "type": "git",
     "url": "git+https://github.com/ashco/Project2.git"
   },
-  "author": "",
+  "author": "AshCo",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ashco/Project2/issues"
+  "homepage": "https://re-crypt.herokuapp.com/",
+  "engines": {
+    "node": "10.14.1"
   },
-  "homepage": "https://github.com/ashco/Project2#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
